@@ -1,0 +1,5 @@
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
+08/01/2023 Web Application Development
