@@ -1,0 +1,19 @@
+<div class="list row">
+  <div class="col-md-6">
+    <app-list-tool
+      [products]="products"
+      [currentIndex]="currentIndex"
+      [showModeratorBoard]="showModeratorBoard"
+      [showAdminBoard]="showAdminBoard"
+      (setActive)="setActiveProduct($event.product, $event.index)"
+      (removeAll)="removeAllProducts()"
+    ></app-list-tool>
+  </div>
+
+  <div class="col-md-6">
+    <app-product-details
+      [viewMode]="true"
+      [currentProduct]="currentProduct"
+    ></app-product-details>
+  </div>
+</div>

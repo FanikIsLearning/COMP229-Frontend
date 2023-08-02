@@ -1,0 +1,17 @@
+#profile-img {
+  width: 50%;
+  height: 50%;
+  margin: auto;
+  padding: 3%;
+}
+
+input,
+button {
+  width: 50%;
+  margin: auto;
+}
+
+#register {
+  text-align: center;
+  font-weight: 600;
+}

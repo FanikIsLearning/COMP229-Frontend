@@ -1,0 +1,112 @@
+<nav class="navbar navbar-expand-md navbar fixed-top">
+  <div class="container-fluid">
+    <button
+      class="navbar-toggler custom-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarCollapse"
+      aria-controls="navbarCollapse"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-content">
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a href="/home" class="navbar-brand">Home</a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLink="products"
+              (click)="filterProductByCategory('')"
+              >Products
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLink="products"
+              (click)="filterProductByCategory('Meat and Seafood')"
+            >
+              Meat & Seafood
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLink="products"
+              (click)="filterProductByCategory('Beverage and Alcohol')"
+            >
+              Beverage & Alochol
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLink="products"
+              (click)="filterProductByCategory('Dairy and Eggs')"
+            >
+              Dairy & Eggs
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLink="products"
+              (click)="filterProductByCategory('Bakery')"
+            >
+              Bakery
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLink="products"
+              (click)="filterProductByCategory('Grains')"
+            >
+              Grains
+            </a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+          <li class="nav-item">
+            <a href="/register" class="nav-link" routerLink="register"
+              >Sign Up</a
+            >
+          </li>
+
+          <li class="nav-item">
+            <a href="/login" class="nav-link" routerLink="login">Login</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+          <li class="nav-item">
+            <a href="/profile" class="nav-link" routerLink="profile">{{
+              username
+            }}</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" (click)="logout()">LogOut</a>
+          </li>
+        </ul>
+      </div>
+      <div class="second-layer">
+        <div class="search-bar">
+          <app-search-tool></app-search-tool>
+        </div>
+        <div class="nav-padding">FRESH</div>
+        <a href="/home" class="navbar-brand"
+          ><img
+            src="../assets/fresh.png"
+            alt="logo"
+            style="width: auto; height: 100px"
+        /></a>
+      </div>
+    </div>
+  </div>
+</nav>

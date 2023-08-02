@@ -1,0 +1,12 @@
+#profile-img {
+  width: 30%;
+  height: 30%;
+  margin: auto;
+  padding: 3%;
+}
+
+input,
+button {
+  width: 40%;
+  margin: auto;
+}
