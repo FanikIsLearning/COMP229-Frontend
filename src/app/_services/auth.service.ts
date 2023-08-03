@@ -15,6 +15,7 @@ const httpOptions = {
     'Access-Control-Allow-Headers':
       'Origin, X-Requested-With, Content-Type, Accept',
   }),
+  withCredentials: true,
 };
 
 @Injectable({

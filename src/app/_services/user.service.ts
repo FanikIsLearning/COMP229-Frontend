@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 
@@ -26,11 +26,6 @@ export class UserService {
   }
 
   getAdminBoard(): Observable<any> {
-    const headers = new HttpHeaders();
-    return this.http.get(API_URL + 'admin', {
-      headers,
-      responseType: 'text',
-      withCredentials: true,
-    });
+    return this.http.get(API_URL + 'admin', { responseType: 'text' });
   }
 }
