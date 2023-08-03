@@ -26,9 +26,11 @@ export class UserService {
   }
 
   getAdminBoard(): Observable<any> {
+    const headers = new HttpHeaders();
     return this.http.get(API_URL + 'admin', {
-      withCredentials: true,
+      headers,
       responseType: 'text',
+      withCredentials: true,
     });
   }
 }
