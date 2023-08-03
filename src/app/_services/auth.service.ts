@@ -6,13 +6,16 @@ import { Observable } from 'rxjs';
 
 //const AUTH_API = 'http://localhost:8080/api/auth/';
 const AUTH_API = 'https://fresh-server.onrender.com/api/auth/';
-const token = sessionStorage.getItem('token');
+
 const httpOptions = {
   //headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-  headers: new HttpHeaders({
+  /*headers: new HttpHeaders({
     'Content-Type': 'application/json',
-    Authorization: 'Bearer ' + token,
-  }),
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Headers':
+      'Origin, X-Requested-With, Content-Type, Accept',
+  }),*/
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   withCredentials: true,
 };
 
