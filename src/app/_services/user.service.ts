@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 
@@ -26,6 +26,9 @@ export class UserService {
   }
 
   getAdminBoard(): Observable<any> {
-    return this.http.get(API_URL + 'admin', { responseType: 'text' });
+    const token = localStorage.getItem('auth-token'); // Replace with the correct key for your token
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);
+
+    return this.http.get(API_URL + 'admin', { headers, responseType: 'text' });
   }
 }
