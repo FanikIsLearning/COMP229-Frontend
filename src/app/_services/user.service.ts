@@ -1,10 +1,7 @@
 import { Injectable } from '@angular/core';
-
-import { HttpClient } from '@angular/common/http';
-
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-//const API_URL = 'http://localhost:8080/api/test/';
 const API_URL = 'https://fresh-server.onrender.com/api/test/';
 
 @Injectable({
@@ -12,6 +9,17 @@ const API_URL = 'https://fresh-server.onrender.com/api/test/';
 })
 export class UserService {
   constructor(private http: HttpClient) {}
+
+  getHttpOptions() {
+    const token = sessionStorage.getItem('token');
+    return {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + token,
+      }),
+      responseType: 'text' as 'json',
+    };
+  }
 
   getPublicContent(): Observable<any> {
     return this.http.get(API_URL + 'all', { responseType: 'text' });
@@ -26,6 +34,6 @@ export class UserService {
   }
 
   getAdminBoard(): Observable<any> {
-    return this.http.get(API_URL + 'admin', { responseType: 'text' });
+    return this.http.get(API_URL + 'admin', this.getHttpOptions());
   }
 }
