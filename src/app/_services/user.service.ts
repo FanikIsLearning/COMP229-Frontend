@@ -26,9 +26,9 @@ export class UserService {
   }
 
   getAdminBoard(): Observable<any> {
-    const token = localStorage.getItem('auth-token'); // Replace with the correct key for your token
-    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);
-
-    return this.http.get(API_URL + 'admin', { headers, responseType: 'text' });
+    return this.http.get(API_URL + 'admin', {
+      withCredentials: true,
+      responseType: 'text',
+    });
   }
 }
