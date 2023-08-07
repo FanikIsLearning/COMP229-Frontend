@@ -1,18 +1,6 @@
 <div *ngIf="viewMode; else editable">
   <div *ngIf="currentProduct.id">
     <div class="product-details">
-      <div class="product-title">
-        {{ currentProduct.name }}
-      </div>
-
-      <div>
-        <img
-          [src]="currentProduct.images"
-          [alt]="currentProduct.name"
-          style="width: 300px; height: 300px"
-        />
-      </div>
-
       <div class="product-description">
         <label><strong>Description: </strong></label>
         <span>{{ currentProduct.description }}</span>
@@ -36,9 +24,11 @@
         <label><strong>Price: </strong>CAD </label>
 
         <div class="quantity">
-          <button (click)="onAddQuantity()">+</button>
+          <button (click)="onAddQuantity(); $event.stopPropagation()">+</button>
           <p>Quantity: {{ productQuantity }}</p>
-          <button (click)="onRemoveQuantity()">-</button>
+          <button (click)="onRemoveQuantity(); $event.stopPropagation()">
+            -
+          </button>
         </div>
 
         {{ currentProduct.published ? "Published" : "Pending" }}

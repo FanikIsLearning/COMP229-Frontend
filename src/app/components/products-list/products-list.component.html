@@ -1,5 +1,5 @@
 <div class="list row">
-  <div class="col-md-6">
+  <div class="col-md-12">
     <app-list-tool
       [products]="products"
       [currentIndex]="currentIndex"
@@ -7,13 +7,7 @@
       [showAdminBoard]="showAdminBoard"
       (setActive)="setActiveProduct($event.product, $event.index)"
       (removeAll)="removeAllProducts()"
-    ></app-list-tool>
-  </div>
-
-  <div class="col-md-6">
-    <app-product-details
-      [viewMode]="true"
-      [currentProduct]="currentProduct"
-    ></app-product-details>
+    >
+    </app-list-tool>
   </div>
 </div>

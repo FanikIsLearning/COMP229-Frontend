@@ -86,5 +86,12 @@ li {
   display: inline-block;
   font-size: auto;
   font-weight: auto;
-  margin: auto;
+}
+
+@media (max-width: 768px) {
+  .navbar-nav .nav-item .nav-link {
+    text-align: center;
+    display: block;
+    width: 100%;
+  }
 }

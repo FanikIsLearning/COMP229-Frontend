@@ -20,7 +20,11 @@ export class ListToolComponent implements OnInit {
   ngOnInit(): void {}
 
   setActiveProduct(product: Product, index: number): void {
-    this.setActive.emit({ product, index });
+    if (this.currentIndex === index) {
+      this.currentIndex = -1;
+    } else {
+      this.currentIndex = index;
+    }
   }
 
   removeAllProducts(): void {

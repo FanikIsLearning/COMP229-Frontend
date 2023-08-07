@@ -1,17 +1,29 @@
 <h4>Products List</h4>
 
 <div class="row">
-  <div class="col-md-4" *ngFor="let product of products; let i = index">
+  <div
+    class="col-md-3"
+    *ngFor="let product of products; let i = index"
+    style="padding-bottom: 10px"
+  >
     <div
       class="card"
       [class.active]="i == currentIndex"
       (click)="setActiveProduct(product, i)"
+      style="padding: 10px"
     >
       <img [src]="product.images" class="card-img-top" alt="product image" />
       <div class="card-body">
         <h5 class="card-title">{{ product.name }}</h5>
         <p class="discount">{{ product.ifDiscount ? "on sale" : "" }}</p>
-        <!--a href="#" class="btn btn-primary">View details</a-->
+      </div>
+      <div *ngIf="i === currentIndex">
+        <app-product-details
+          [viewMode]="true"
+          [currentProduct]="product"
+          style="text-align: center"
+        >
+        </app-product-details>
       </div>
     </div>
   </div>
